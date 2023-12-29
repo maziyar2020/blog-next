@@ -36,11 +36,11 @@ export default function Blogs({ blogsData, postCategories }) {
     return (
         <Layout>
             <div className="inner-wrapper h-[100vh] md:h-[calc(100vh - 40px)] w-full md:px-0 md:p-0">
-                <div className={`w-full flex  mx-auto inner-wrapper pb-[15px] pt-[80px] lg:pt-0  transition-all duration-500 ease-out ${overlay ? 'lg:pr-[240px]' : 'lg:pr-[80px]'}`}>
+                <div className={`w-full flex  mx-auto inner-wrapper pb-[15px] pt-[80px] lg:pt-0  transition-all duration-500 ease-out lg:pr-[80px]`}>
                     <NavbarPhone pageName="بلاگ" />
                     <NavbarDesktop pageName="بلاگ" />
                     <Overlay />
-                    < div className={`blog w-full px-2 md:px-4 pt-4 relative`} >
+                    < div className={`blog w-full px-2 md:px-4 pt-4 relative transition-all duration-500 ease-out ${overlay ? '-translate-x-[200px]' : 'translate-x-0'}`} >
                         <div className="absolute w-full h-full blog__bg"/>
 
                         <div className="w-full">

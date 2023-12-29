@@ -14,7 +14,7 @@ import { FaTelegram, FaUser } from 'react-icons/fa'
 import http from "@/services/httpService";
 // layout
 import Layout from "@/containers/Layout";
-import { useStore } from "react-redux";
+import { useSelector, useStore } from "react-redux";
 // components
 import NavbarDesktop from '@/components/home/NavbarDesktop';
 import NavbarPhone from '@/components/home/NavbarPhone';
@@ -24,9 +24,10 @@ import BlogSlider from "@/components/swiper/BlogSlider";
 
 
 const PostSlug = ({ postData }) => {
-    const store = useStore()
-    const pageData = store.getState().pageData
+    const pageData = useSelector(state => state.pageData)
     const { sidebarExpand, overlay } = pageData
+    console.log(overlay);
+    
 
     return (
         <Layout>
@@ -49,7 +50,11 @@ const PostSlug = ({ postData }) => {
                 ${overlay ? 'overflow-hidden' : 'overflow-y-auto'} 
                 ${sidebarExpand ? 'drawer' : ''}`}
                 >
-                    <div className="flex flex-col px-4 pt-6" dir="rtl">
+                    <div className={`
+                        flex flex-col px-4 pt-6 duration-500 transition-all ease-in-out
+                        ${overlay ? '-translate-x-[30px]' : '-translate-x-[0px]'}
+                    `} dir="rtl">
+
                         {/* post header */}
                         <header className="w-full flex pt-5
                          items-center md:items-start justify-between
