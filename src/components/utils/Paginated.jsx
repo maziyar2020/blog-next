@@ -21,7 +21,7 @@ const Paginated = ({ totalPages, page }) => {
             {
                 totalPages > 1 &&
 
-                <div className=" col-span-6 flex justify-center bg-second py-2 rounded text-white">
+                <div className=" col-span-6 mt-0 md:mt-4 flex justify-center bg-second py-2 rounded text-white">
 
                     <Pagination
                         count={totalPages}

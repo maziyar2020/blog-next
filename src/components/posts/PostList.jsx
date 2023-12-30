@@ -8,7 +8,7 @@ const PostList = ({ blogsData, noInterActions }) => {
         blogsData.map((item, index) => {
             return <div
                 key={index}
-                className="mb-4 bg-second rounded-md overflow-hidden flex flex-col"
+                className="mb-4 md:mb-0 bg-second rounded-md overflow-hidden flex flex-col"
             >
                 {/* image */}
                 <div className="aspect-w-16 aspect-h-9">
@@ -44,7 +44,7 @@ const PostList = ({ blogsData, noInterActions }) => {
                             <ClockIcon className="h-4 w-4 stroke-gray-500" />
                             <span className="text-xs text-gray-500">زمان مطالعه :</span>
                             <span className="text-xs text-gray-500">{item.readingTime}</span>
-                            <span className="text-xs">دقیقه</span>
+                            <span className="text-xs text-gray-500">دقیقه</span>
                         </div>
                         <Link href={`/posts/${item.hashId}/${item.slug}`}>
                             <a className="w-24 h-10 mt-4 bg-[#ffc107] flex items-center justify-center rounded-xl ">

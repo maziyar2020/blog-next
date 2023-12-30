@@ -3,7 +3,7 @@ import { AdjustmentsIcon } from '@heroicons/react/outline'
 // router
 import { useRouter } from 'next/router'
 // hooks
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const sortbarOptions = [
     { label: 'محبوب ترین', id: 'popular' },
@@ -14,6 +14,16 @@ const sortbarOptions = [
 const SortBar = () => {
     const router = useRouter()
     const [sort, setSort] = useState(router.query.sort || 'popular')
+
+    useEffect(() => {
+        if (sort === "popular") {
+            if (router.query !== undefined) {
+                router.replace({
+                    query: { ...router.query, sort: 'popular' },
+                });
+            }
+        }    
+    }, [])
 
     const sortHandler = (id) => {
 

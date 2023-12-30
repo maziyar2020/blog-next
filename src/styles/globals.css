@@ -105,17 +105,18 @@ button:disabled {
 }
 
 }
-.blog__detail{
+.blog-scroll-fix{
     overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
 }
 
-.blog__detail::-webkit-scrollbar-thumb {
+.blog-scroll-fix::-webkit-scrollbar-thumb {
     background: #2d2d3a;
     border-radius: 10px;
     position: absolute;
   }
-.blog__detail::-webkit-scrollbar{
+.blog-scroll-fix::-webkit-scrollbar{
     width: 0px;
     background: transparent; 
 }

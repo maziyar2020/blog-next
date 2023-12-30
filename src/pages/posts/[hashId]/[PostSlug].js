@@ -26,7 +26,7 @@ import BlogSlider from "@/components/swiper/BlogSlider";
 const PostSlug = ({ postData }) => {
     const pageData = useSelector(state => state.pageData)
     const { sidebarExpand, overlay } = pageData
-    console.log(overlay);
+
     
 
     return (
@@ -50,11 +50,7 @@ const PostSlug = ({ postData }) => {
                 ${overlay ? 'overflow-hidden' : 'overflow-y-auto'} 
                 ${sidebarExpand ? 'drawer' : ''}`}
                 >
-                    <div className={`
-                        flex flex-col px-4 pt-6 duration-500 transition-all ease-in-out
-                        ${overlay ? '-translate-x-[30px]' : '-translate-x-[0px]'}
-                    `} dir="rtl">
-
+                    <div className={`flex flex-col px-4 pt-6`} dir="rtl">
                         {/* post header */}
                         <header className="w-full flex pt-5
                          items-center md:items-start justify-between
@@ -111,7 +107,7 @@ const PostSlug = ({ postData }) => {
 
                             </div>
                         </header>
-                        <div className="prose prose-zinc prose-2xl w-full
+                        <div className="prose prose-stone prose-2xl w-full
                         prose-h1:text-[30px] md:prose-h1:text-3xl prose-h1:font-medium
                         prose-h1:text-gray-200
                         prose-h2:text-xl md:prose-h2:text-2xl prose-h2:font-extrabold
@@ -119,12 +115,16 @@ const PostSlug = ({ postData }) => {
                         prose-p:text-base prose-p:leading-7
                         md:prose-p:text-lg md:prose-p:leading-10
                         prose-p:text-justify
-                        prose-img:rounded-xl pb-8 max-w-none">
+                        prose-img:rounded-xl lg:prose-img:w-2/4 lg:prose-img:mx-auto
+                        md:prose-img:w-3/4 md:prose-img:mx-auto
+                        prose-img:w-full prose-img:mx-0
+                         pb-8 max-w-none"
+                        >
                             <h1>{postData.title}</h1>
                             <h2>عنوان تستی</h2>
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                             <h2>عنوان تستی</h2>
-                            <img src={`${postData.coverImage}`} alt="" />
+                            <img src={`${postData.coverImage}`} alt="" className="w-full" />
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                         </div>
                         <div className="prose prose-xl max-w-none">
