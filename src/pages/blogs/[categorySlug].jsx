@@ -16,13 +16,23 @@ import Biography from '@/components/home/Biography';
 import Overlay from '@/components/home/Overlay';
 // hooks
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 
 
 
 export default function Blogs({ blogsData, postCategories }) {
     const pageData = useSelector(state => state.pageData)
-    const {sidebarExpand} = pageData
+    const { sidebarExpand, selectedQuery } = pageData
+    const router = useRouter()
+
+
+    useEffect(() => {
+        router.replace({
+            query: { ...router.query, sort: selectedQuery },
+        });
+    }, [router.asPath]);
 
     return (
         <Layout>
@@ -56,6 +66,7 @@ export default function Blogs({ blogsData, postCategories }) {
         </Layout>
     )
 }
+
 
 
 export async function getServerSideProps({ req, query }) {

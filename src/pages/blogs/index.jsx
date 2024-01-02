@@ -14,17 +14,19 @@ import http from '@/services/httpService';
 import queryString from 'query-string'
 import Biography from '@/components/home/Biography';
 import Overlay from '@/components/home/Overlay';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { setPageQuery } from 'src/redux/page/pageActions';
 
 
 
 
 export default function Blogs({ blogsData, postCategories }) {
     const pageData = useSelector(state => state.pageData)
-    const { overlay,sidebarExpand } = pageData
+    const { sidebarExpand,selectedQuery } = pageData
     const router = useRouter()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const ele = document.getElementById('blog')
@@ -32,6 +34,14 @@ export default function Blogs({ blogsData, postCategories }) {
             behavior: 'smooth'
         })
     }, [router])
+
+    useEffect(() => {
+        router.replace({
+            query: { ...router.query, sort: selectedQuery }
+        })
+    }, []);
+
+
 
     return (
         <Layout>
@@ -41,8 +51,8 @@ export default function Blogs({ blogsData, postCategories }) {
                     <NavbarDesktop pageName="بلاگ" />
                     <Overlay />
                     <div className={`blog blog-scroll-fix w-full px-2 md:px-4 relative transition-all duration-500 ease-in ${sidebarExpand ? '-translate-x-[150px]' : 'translate-x-0'} h-auto md:h-[calc(100vh - 40px)] pt-4  `} >
-                        <div className="absolute w-full h-full blog__bg"/>
-                        <div style={{ height: '1px' }} className="absolute" id="blog"/>
+                        <div className="absolute w-full h-full blog__bg" />
+                        <div style={{ height: '1px' }} className="absolute" id="blog" />
                         <div className="w-full">
                             <CategoryDesktop postCategories={postCategories} />
                             <div className="flex lg:hidden mt-4">
@@ -50,7 +60,7 @@ export default function Blogs({ blogsData, postCategories }) {
                             </div>
                         </div>
                         <div className="relative text-white blog__detail">
-                            
+
                             <div className="hidden lg:flex">
                                 <SortBar />
                             </div>
