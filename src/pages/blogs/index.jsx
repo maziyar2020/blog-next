@@ -64,7 +64,7 @@ export default function Blogs({ blogsData, postCategories }) {
                             <div className="hidden lg:flex">
                                 <SortBar />
                             </div>
-                            <div className="grid grid-cols-[1fr] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[1fr] xl:grid-cols-[repeat(2,1fr)] gap-5">
+                            <div className="grid grid-cols-[1fr] md:grid-cols-[repeat(2,1fr)] lg:grid-cols-[1fr] xl:grid-cols-[repeat(2,1fr)] gap-3">
                                 <PostList blogsData={blogsData.docs} />
                             </div>
                             <Paginated page={blogsData.page} totalPages={blogsData.totalPages} />
